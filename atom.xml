@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://uestcxt.github.io</id>
+    <title>AZALEA</title>
+    <updated>2022-06-03T15:22:33.276Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://uestcxt.github.io"/>
+    <link rel="self" href="https://uestcxt.github.io/atom.xml"/>
+    <logo>https://uestcxt.github.io/images/avatar.png</logo>
+    <icon>https://uestcxt.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, AZALEA</rights>
+    <entry>
+        <title type="html"><![CDATA[829. 连续整数求和]]></title>
+        <id>https://uestcxt.github.io/post/829-lian-xu-zheng-shu-qiu-he/</id>
+        <link href="https://uestcxt.github.io/post/829-lian-xu-zheng-shu-qiu-he/">
+        </link>
+        <updated>2022-06-03T15:14:08.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="题目描述">题目描述</h2>
+<p>给定一个正整数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>，将其写成多个连续正整数加和的形式。问一共有多少种这样的形式。</p>
+<h2 id="样例">样例</h2>
+<pre><code class="language-bash">输入: 5
+输出: 2
+解释: 5 = 5 = 2 + 3
+
+输入: 9
+输出: 3
+解释: 9 = 9 = 4 + 5 = 2 + 3 + 4
+
+输入: 15
+输出: 4
+解释: 15 = 15 = 8 + 7 = 4 + 5 + 6 = 1 + 2 + 3 + 4 + 5
+</code></pre>
+<h2 id="解题思路">解题思路</h2>
+<p>设有一个正整数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>，如果能写成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>个连续正整数相加的形式，则根据等差数列公式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>=</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>+</mo><mo>(</mo><mi>x</mi><mo>+</mo><mn>2</mn><mo>)</mo><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><mo>(</mo><mi>x</mi><mo>+</mo><mi>K</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">N=(x+1)+(x+2)+...+(x+K) 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose">)</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>=</mo><mi>K</mi><mo>∗</mo><mi>x</mi><mo>+</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>K</mi><mo>)</mo><mo>∗</mo><mi>K</mi><mi mathvariant="normal">/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">N=K*x+(1+K)*K/2 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord">/</span><span class="mord">2</span></span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>−</mo><mo>(</mo><mn>1</mn><mo>+</mo><mi>K</mi><mo>)</mo><mo>∗</mo><mi>K</mi><mi mathvariant="normal">/</mi><mn>2</mn><mo>=</mo><mi>K</mi><mo>∗</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">N-(1+K)*K/2=K*x 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord">/</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span></span></p>
+<p>则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>能够被<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>个连续正整数相加的条件是：左式能够被<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>整除，因此枚举约数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span>的个数，即是答案。</p>
+<ul>
+<li>时间复杂度分析：约数个数是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h2 id="代码">代码</h2>
+<h3 id="java实现">Java实现</h3>
+<pre><code class="language-java">class Solution {
+    public int consecutiveNumbersSum(int n) {
+        int res = 0;
+        for (int k = 1; k * (k + 1) &lt;= 2 * n; k ++ ) {
+            if ((n - k * (k + 1) / 2) % k == 0) res ++ ;
+        }
+        return res;
+    }
+}
+</code></pre>
+<h3 id="python实现">Python实现</h3>
+<pre><code class="language-python">class Solution:
+    def consecutiveNumbersSum(self, n: int) -&gt; int:
+        res = 0
+        k = 1
+        while k * (k + 1) &lt;= 2 * n:
+            if (n - k * (k + 1) / 2) % k == 0:
+                res += 1
+            k += 1
+        return res
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[工作经验]]></title>
+        <id>https://uestcxt.github.io/post/gong-zuo-jing-yan/</id>
+        <link href="https://uestcxt.github.io/post/gong-zuo-jing-yan/">
+        </link>
+        <updated>2022-05-28T07:49:46.000Z</updated>
+        <summary type="html"><![CDATA[<p>学长分享的工作经验，贴在这里提醒工作过程中的自己。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>学长分享的工作经验，贴在这里提醒工作过程中的自己。</p>
+<!-- more -->
+<ol>
+<li><strong>明确优先级，明确事情的边界。</strong><br>
+上个月的一两周，我的主管在周会上说我的工作做的有些杂，希望我们能够专业的同学做专业事儿。我记到现在，我很感激他能够为我指出这个问题。后来我仔细回想了那一两周的工作状态：经常会被一些杂事打断，有其他事情过来后，没有明确好优先级，就先做了，导致自己回头看一周的工作，没有深入思考的内容，只有一些比较多的杂事。这其实就是因为自己没有明确好优先级，其实重要或者困难的事情总是需要自己深入思考，投入的状态，如果一直让自己处于被打断的状态，自然没有理想的结果。</li>
+<li><strong>深入思考，快速进入专注状态。</strong><br>
+回过头来看，工作的这段时间，一些重要的问题或者困难的问题，都是在一段专注和投入的时间内完成的。其实扩大范围，在上学的时候，身边的学霸同学们，其实都有共同的特征，就是他们学习能够快速进入专注状态，深入思考，因此对于知识的消化和理解也会更快。结合自身来看，一边看视频一边走路，一边听歌一边写代码，一边看视频一边洗漱等等&quot;并行操作&quot;总是发生在我的身上，事实上，分心的情况总是发生在我们的身边。</li>
+<li><strong>会休息才会工作。</strong><br>
+对于程序员或者脑力密集的工作行业来说，一天最重要的就是精力。每天醒来的时候，精力就像一个盛满杯子的水，如果在进入工作状态前，通过视频，公众号，APP等消耗一波精力，那么对于困难的工作内容，也会没有足够的精力进入深入思考状态。环顾四周工作能力优秀的同学们，其实都会发现他们都非常会管理自己的精力。事实上在学校阶段，身边的学霸或者优秀的同学们也并非只是让自己一直处于学习状态，而且通过休息劳逸结合，让自己的&quot;杯子&quot;始终盛满水。我记得刚入职第一个月的时候，工作压力比较大，一次早上主管很郑重的和我说，我看到你周六也有代码提交，如果没有特别重要的情况，周末还是要好好休息。现在回过头来看，及时休息和放松也是工作和生活的重要一部分。不会休息，就会陷入到低效率，低产出，同时自己也会质疑自己，我都已经这么努力了，为什么还是没有产出的怪圈。</li>
+<li><strong>准确评估工期，及时暴露风险。</strong><br>
+对于开发同学来说，准确的评估工期，及时暴露风险是让别人对你信任的最基础，也是最重要的关键。评估工期的时候，要仔细考虑各个部分的时间，留有一定buffer，给出的工期，也就是给别人的承诺和心理预期。如果屡次拖延或超过，别人对你的信任也就难以建立</li>
+<li><strong>积极沟通。</strong><br>
+从我个人的工作这段时间来看，我自己还是挺属于慢热型，还是用了挺久的时间才逐渐融入团队。后来在一本书里有看到，其实不愿意表达想法，不愿意沟通，本质上是害怕自己说错，害怕自己犯错，更重要的是害怕自己和别人不同。工作的时候其实特别需·要积极沟通，不论是和主管师兄，还是一起合作的同学，积极沟通才能让事情高效解决。</li>
+<li><strong>会议要高效，沟通要有结果。</strong><br>
+开发同学其实工作中会有各种各样的会议，产品规划、产品技术方案、再接口、技术方案会议等随处可见。为了避免自己掉入低效或无效的陷阱中，参加会议或和别人沟通前，先花时间看方案，列举问题。沟通时，有主题，将之前列举的问题对清楚并记录。结束后，这些记录就是会议记录，也是后面干活时候的参考。记得刚开始的时候，和师兄讨论问题，我总是把握不到重点，师兄听不懂我想问啥，他总是和我说：&quot;用一句话概括你的问题&quot;。后来我逐渐意识到，如果自己都不知道想问什么，那别人更不可能抓到你的重点，回答你的问题。也希望自己以后在提问前，先问问自己如何一句话概括问题。</li>
+<li><strong>先思考再动手，但如果一时间想不到完美的方案，不如思考后动手再迭代。</strong><br>
+这句话看似是矛盾的，其实需要从两个维度来考虑：一方面，我个人感觉程序员实际开发的时间可能只会占到工作时间的50%不到，大多数的时间是需要先思考、推演，然后再动手。因为一个临时方案或者想到哪里写哪里，通常会出问题，也就是逻辑上的 bug，如果再返工，导致浪费的时间，其实是开发时间的两倍。另外一个方面，如果是一个复杂的场景，困难的问题，不能总是让自己处于制定方案的状态，会导致自己有畏难情绪，也会没有产出。前一个多月，对于一个问题，我就处于这个状态，总是以困难为借口拖延。因此在思考的基础上，先实现，完成核心功能，之后再迭代或重构。对于一个复杂的方案和场景，其实是不可能一蹴而就的，是需要迭代和改进得，但互联网行业会很关注实效性和结果，因此也需要避免自己掉入反复思考不动手的陷阱。两个方面的平衡问题其实需要一个时间阈值，思考一定的时间后，就可以动手做核心或重要的部分。</li>
+</ol>
+]]></content>
+    </entry>
+</feed>
